@@ -29,7 +29,7 @@
 			$this->EnableAction("Positon");	
 
 			
-			$idtext = ".*".hexdec($this->ReadPropertyString("DeviceIDRet")).".*"
+			$idtext = ".*".hexdec($this->ReadPropertyString("DeviceIDRet")).".*";
 			$this->SetReceiveDataFilter($idtext);
 			IPS_LogMessage("FSB14 Device ID (HEX):".$this->ReadPropertyString("DeviceIDRet")."#dec:".$idtext);
 		}
