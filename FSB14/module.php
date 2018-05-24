@@ -50,7 +50,7 @@
 			$data = json_decode($JSONString);
 			$this->SendDebug("EnoceanGatewayData", $JSONString, 0);
 			
-			IPS_LogMessage("FSB14 Device ID (HEX)",$data);
+			IPS_LogMessage("FSB14 Device ID (HEX)",dechex($data->{'DeviceID'}));
 			
 			// fahrzeit auswerten
 			$this->Process($data);
