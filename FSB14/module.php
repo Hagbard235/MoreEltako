@@ -30,7 +30,7 @@
 
 			
 			
-			$this->SetReceiveDataFilter(".*".hexdec($this->ReadPropertyString("DeviceIDRet")).".*");
+		//	$this->SetReceiveDataFilter(".*".hexdec($this->ReadPropertyString("DeviceIDRet")).".*");
 		}
 		
 		/*
