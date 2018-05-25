@@ -29,9 +29,7 @@
 			$this->EnableAction("Positon");	
 
 			
-			$idtext = ".*".hexdec($this->ReadPropertyString("DeviceIDRet")).".*";
-		//	$this->SetReceiveDataFilter($idtext);
-			IPS_LogMessage("FSB14"," Device ID (HEX):".$this->ReadPropertyString("DeviceIDRet")."#dec:".$idtext);
+		  $this->SetReceiveDataFilter    (".*\"DeviceID\":".(int)hexdec( $this->ReadPropertyString("DeviceIDRet")).".*");
 		}
 		
 		/*
@@ -47,11 +45,11 @@
    		*/
 		
 		public function ReceiveData($JSONString)
-		{
+		{   //IPS_LogMessage("DEBUGFSB14", $JSONString);
 			$data = json_decode($JSONString);
 			$this->SendDebug("EnoceanGatewayData", $JSONString, 0);
 			
-			IPS_LogMessage("FSB14 Device ID (HEX)",dechex($data->{'DeviceID'}));
+			//IPS_LogMessage("FSB14 Device ID (HEX)",dechex($data->{'DeviceID'}));
 			
 			// fahrzeit auswerten
 			$this->Process($data);
